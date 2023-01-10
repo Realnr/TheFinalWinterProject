@@ -52,8 +52,10 @@ public class ProgramController {
         }
         GingerbreadHouse g1 = new GingerbreadHouse("src/main/resources/graphic/g1.png");
         viewController.draw(g1);
-        Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png",-1,310);
-        viewController.draw(p);
+        for(int i = 0; i < 20; i++) {
+            Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png", 600 + Math.random()*600, 310);
+            viewController.draw(p);
+        }
         Moon m1= new Moon(535,80,70);
         viewController.draw(m1);
 

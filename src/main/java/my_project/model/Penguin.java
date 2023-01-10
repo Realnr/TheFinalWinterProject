@@ -19,19 +19,9 @@ public class Penguin extends GraphicalObject {
     }
 
     public void update(double dt) {
-        if (goingright == true){
-            x += 180*dt;
-        }
-        if (goingleft == true){
-            x -= 180*dt;
-        }
-        if(x > 500){
-            goingleft = true;
-            goingright = false;
-        }
-        if(x < 0){
-            goingright = true;
-            goingleft = false;
+        x -= 180*dt;
+        if(x < -120){
+            x = 650;
         }
     }
 }
