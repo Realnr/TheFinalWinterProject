@@ -50,8 +50,13 @@ public class ProgramController {
             Snow newSnow = new Snow(Math.random()*600,Math.random()*-20,20 + Math.random()*30,2 + Math.random()*2);
             viewController.draw(newSnow);
         }
-        Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png",-1,299);
+        GingerbreadHouse g1 = new GingerbreadHouse("src/main/resources/graphic/g1.png");
+        viewController.draw(g1);
+        Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png",-1,310);
         viewController.draw(p);
+        Moon m1= new Moon(535,80,70);
+        viewController.draw(m1);
+
     }
 
     /**
