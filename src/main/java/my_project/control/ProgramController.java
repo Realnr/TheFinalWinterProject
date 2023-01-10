@@ -2,7 +2,7 @@ package my_project.control;
 
 import KAGO_framework.control.ViewController;
 import KAGO_framework.model.abitur.datenstrukturen.Queue;
-import my_project.model.Ball;
+import my_project.model.*;
 import my_project.view.InputManager;
 
 import java.awt.event.MouseEvent;
@@ -18,6 +18,10 @@ public class ProgramController {
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
+
+
+
+
 
     /**
      * Konstruktor
@@ -36,9 +40,18 @@ public class ProgramController {
      */
     public void startProgram() {
         // Erstelle ein Objekt der Klasse Ball und lasse es zeichnen
-        Ball ball1 = new Ball(150,150);
-        viewController.draw(ball1);
-
+        //Ball ball1 = new Ball(150,150);
+        //viewController.draw(ball1);
+        Background background = new Background();
+        viewController.draw(background);
+        SnowyGround THESNOWYGROUND = new SnowyGround();
+        viewController.draw(THESNOWYGROUND);
+        for(int i = 0; i < 200; i++){
+            Snow newSnow = new Snow(Math.random()*600,Math.random()*-20,20 + Math.random()*30,2 + Math.random()*2);
+            viewController.draw(newSnow);
+        }
+        Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png",-1,299);
+        viewController.draw(p);
     }
 
     /**
