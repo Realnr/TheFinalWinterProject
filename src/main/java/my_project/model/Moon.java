@@ -21,4 +21,5 @@ public class Moon extends GraphicalObject {
 
 
     }
+
 }

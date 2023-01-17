@@ -14,15 +14,12 @@ import java.awt.event.MouseEvent;
 public class ProgramController {
 
     //Attribute
+    private double timer;
+    private double timer2;
 
-
+    //private boolean next = true;
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
-
-
-
-
-
     /**
      * Konstruktor
      * Dieser legt das Objekt der Klasse ProgramController an, das den Programmfluss steuert.
@@ -42,30 +39,47 @@ public class ProgramController {
         // Erstelle ein Objekt der Klasse Ball und lasse es zeichnen
         //Ball ball1 = new Ball(150,150);
         //viewController.draw(ball1);
-        Background background = new Background();
-        viewController.draw(background);
+        DayAndNightCycle DANC1 = new DayAndNightCycle();
+        viewController.draw(DANC1);
+        viewController.register(DANC1);
+
+        //Background background = new Background();
+        //viewController.draw(background);
         SnowyGround THESNOWYGROUND = new SnowyGround();
         viewController.draw(THESNOWYGROUND);
-        for(int i = 0; i < 200; i++){
-            Snow newSnow = new Snow(Math.random()*600,Math.random()*-20,20 + Math.random()*30,2 + Math.random()*2);
+        for (int i = 0; i < 1000; i++) {
+            Snow newSnow = new Snow(Math.random() * 600, Math.random() * -400, 20 + Math.random() * 30, 2 + Math.random() * 2);
             viewController.draw(newSnow);
         }
         GingerbreadHouse g1 = new GingerbreadHouse("src/main/resources/graphic/g1.png");
         viewController.draw(g1);
-        for(int i = 0; i < 20; i++) {
-            Penguin p = new Penguin("src/main/resources/graphic/SmallPingu.png", 600 + Math.random()*600, 310);
+        //for (int i = 0; i < 2; i++) {
+            Penguin p = new Penguin( 600 + Math.random() * 900, 310);//"src/main/resources/graphic/SmallPingu.png"
             viewController.draw(p);
-        }
-        Moon m1= new Moon(535,80,70);
+            viewController.register(p);
+        //}
+        Moon m1 = new Moon(535, 80, 70);
         viewController.draw(m1);
 
     }
+
+   /*public void setNext(boolean next) {
+       this.next = next;
+   }*/
+
+   /* public double getTimer() {
+        return timer;
+    }*/
 
     /**
      * Aufruf mit jeder Frame
      * @param dt Zeit seit letzter Frame
      */
-    public void updateProgram(double dt){
 
+    public void updateProgram(double dt){
+        //timer += dt;
+
+       // timer2 = Math.abs(Math.sin(timer));
+        //System.out.println(timer2);
     }
 }
