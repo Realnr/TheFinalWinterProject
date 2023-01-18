@@ -26,7 +26,7 @@ public class Penguin extends InteractiveGraphicalObject {
 
         if (x < -120) {
             x = 650;
-            //nextPingu = true;
+            nextPingu = true;
         }
         if(pinguPictureId == 0){
             pinguPicture = "src/main/resources/graphic/SmallPingu.png";
@@ -42,13 +42,13 @@ public class Penguin extends InteractiveGraphicalObject {
         }
     }
 
-    /*public boolean isNextPingu() {
+    public boolean isNextPingu() {
         return nextPingu;
     }
 
     public void setNextPingu(boolean nextPingu) {
         this.nextPingu = nextPingu;
-    }*/
+    }
 
     @Override
     public void keyPressed(int key) {

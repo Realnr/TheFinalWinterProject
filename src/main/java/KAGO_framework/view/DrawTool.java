@@ -132,7 +132,7 @@ public class DrawTool {
      * @param b Die Helligkeit der Farbe in Prozent (0-100)
      */
     public void setCurrentHSBColor(float h , float s, float b){
-        if (graphics2D!= null) graphics2D.setColor( Color.getHSBColor(h,s,b));
+        if (graphics2D!= null) graphics2D.setColor( Color.getHSBColor(h/360,s/100,b/100));
     }
 
     /**
