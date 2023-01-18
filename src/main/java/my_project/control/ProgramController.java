@@ -13,6 +13,7 @@ public class ProgramController {
     private double timer;
     private boolean nextPingus = true;
     private boolean pinguSpaw = true;
+    private double howManyPingu;
 
     //private boolean next = true;
     // Referenzen
@@ -63,7 +64,13 @@ public class ProgramController {
     public void updateProgram(double dt) {
         timer += dt;
 
-
+        if (timer > 5*howManyPingu){
+            Penguin p = new Penguin(600 + Math.random() * 900, 310);//"src/main/resources/graphic/SmallPingu.png"
+            viewController.draw(p);
+            viewController.register(p);
+            howManyPingu += 1;
+        }
+        System.out.println(timer);
         /*for (int i = 0; i < 20 && nextPingus; i++) {
             // System.out.println(p1.isNextPingu());
             //if(NextPingu2)
