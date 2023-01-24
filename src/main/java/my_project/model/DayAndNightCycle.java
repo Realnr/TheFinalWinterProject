@@ -57,7 +57,7 @@ public class DayAndNightCycle extends InteractiveGraphicalObject {
         }
         brightness = Math.abs(Math.sin(timer))*100;
         brightnessf = (int) brightness;
-       // System.out.println(mx);
+        //System.out.println(mx);
         //System.out.println(brightness);
     }
 

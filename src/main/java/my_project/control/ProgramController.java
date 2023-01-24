@@ -2,7 +2,7 @@ package my_project.control;
 
 import KAGO_framework.control.ViewController;
 import my_project.model.*;
-
+//import my_project.model.Penguin;
 /**
  * Ein Objekt der Klasse ProgramController dient dazu das Programm zu steuern. Die updateProgram - Methode wird
  * mit jeder Frame im laufenden Programm aufgerufen.
@@ -10,10 +10,9 @@ import my_project.model.*;
 public class ProgramController {
 
     //Attribute
+    private Penguin p;
+    private int pinguCross;
     private double timer;
-    private boolean nextPingus = true;
-    private boolean pinguSpaw = true;
-    private double howManyPingu;
 
     //private boolean next = true;
     // Referenzen
@@ -34,21 +33,23 @@ public class ProgramController {
      * Sie erstellt die leeren Datenstrukturen, zu Beginn nur eine Queue
      */
     public void startProgram() {
+        //Tag und Nacht (+ Sonne/Mond)
         DayAndNightCycle DANC1 = new DayAndNightCycle();
         viewController.draw(DANC1);
         viewController.register(DANC1);
-
-        //Background background = new Background();
-        //viewController.draw(background);
+        //Boden
         SnowyGround THESNOWYGROUND = new SnowyGround();
         viewController.draw(THESNOWYGROUND);
+        //Schnee
         for (int i = 0; i < 1000; i++) {
             Snow newSnow = new Snow(Math.random() * 600, Math.random() * -400, 20 + Math.random() * 30, 2 + Math.random() * 2);
             viewController.draw(newSnow);
         }
+        //Haus
         GingerbreadHouse g1 = new GingerbreadHouse("src/main/resources/graphic/g1.png");
         viewController.draw(g1);
-        Penguin p = new Penguin(600 + Math.random() * 900, 310);//"src/main/resources/graphic/SmallPingu.png"
+        //Der erste Penguin
+        p = new Penguin(600 + Math.random() * 300, 310);//"src/main/resources/graphic/SmallPingu.png"
         viewController.draw(p);
         viewController.register(p);
         //Moon m1 = new Moon(535, 80, 70);
@@ -63,14 +64,14 @@ public class ProgramController {
 
     public void updateProgram(double dt) {
         timer += dt;
-
-        if (timer > 5*howManyPingu){
-            Penguin p = new Penguin(600 + Math.random() * 900, 310);//"src/main/resources/graphic/SmallPingu.png"
-            viewController.draw(p);
-            viewController.register(p);
-            howManyPingu += 1;
+        if(p.isNextPingu()){
+            Penguin po = new Penguin(700+ 40*(pinguCross+1), 310);
+            viewController.draw(po);
+            viewController.register(po);
+            p.setNextPingu(false);
+            pinguCross +=1;
         }
-        System.out.println(timer);
+
         /*for (int i = 0; i < 20 && nextPingus; i++) {
             // System.out.println(p1.isNextPingu());
             //if(NextPingu2)

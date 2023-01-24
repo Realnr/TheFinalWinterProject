@@ -25,7 +25,7 @@ public class Penguin extends InteractiveGraphicalObject {
         x -= 180 * dt;
 
         if (x < -120) {
-            x = 650;
+            x = 700;
             nextPingu = true;
         }
         if(pinguPictureId == 0){
